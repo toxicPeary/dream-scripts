@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/dream-scripts.iml" filepath="$PROJECT_DIR$/dream-scripts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testing/testing.iml" filepath="$PROJECT_DIR$/testing/testing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tutorial-island/tutorial-island.iml" filepath="$PROJECT_DIR$/tutorial-island/tutorial-island.iml" />
+    </modules>
+  </component>
+</project>
