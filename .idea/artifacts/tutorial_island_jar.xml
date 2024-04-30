@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="tutorial-island:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/tutorial_island_jar</output-path>
+    <root id="archive" name="tutorial-island.jar">
+      <element id="module-output" name="tutorial-island" />
+    </root>
+  </artifact>
+</component>
