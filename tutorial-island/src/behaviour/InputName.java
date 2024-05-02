@@ -1,4 +1,4 @@
-package Behaviour;
+package behaviour;
 
 import org.dreambot.api.input.Keyboard;
 import org.dreambot.api.methods.Calculations;

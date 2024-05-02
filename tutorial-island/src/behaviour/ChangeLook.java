@@ -1,4 +1,4 @@
-package Behaviour;
+package behaviour;
 
 import org.dreambot.api.methods.Calculations;
 import org.dreambot.api.methods.widget.Widgets;

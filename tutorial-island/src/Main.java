@@ -1,13 +1,10 @@
-import Behaviour.ChangeLook;
-import Behaviour.GuidePart;
-import Behaviour.InputName;
-import org.dreambot.api.methods.Calculations;
-import org.dreambot.api.script.AbstractScript;
+import behaviour.ChangeLook;
+import behaviour.GuidePart;
+import behaviour.InputName;
+import behaviour.SurvivalPart;
 import org.dreambot.api.script.Category;
 import org.dreambot.api.script.ScriptManifest;
 import org.dreambot.api.script.impl.TaskScript;
-import org.dreambot.api.utilities.Logger;
-import org.dreambot.api.wrappers.cache.nodes.impl.Node;
 
 @ScriptManifest(
         name = "Tutorial Island",
@@ -19,7 +16,7 @@ import org.dreambot.api.wrappers.cache.nodes.impl.Node;
 public class Main extends TaskScript {
     @Override
     public void onStart() {
-        addNodes(new InputName(), new ChangeLook(), new GuidePart());
+        addNodes(new InputName(), new ChangeLook(), new GuidePart(), new SurvivalPart());
     }
 
 
