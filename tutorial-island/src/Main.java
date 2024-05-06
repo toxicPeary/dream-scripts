@@ -1,7 +1,4 @@
-import behaviour.ChangeLook;
-import behaviour.GuidePart;
-import behaviour.InputName;
-import behaviour.SurvivalPart;
+import behaviour.*;
 import org.dreambot.api.script.Category;
 import org.dreambot.api.script.ScriptManifest;
 import org.dreambot.api.script.impl.TaskScript;
@@ -16,7 +13,13 @@ import org.dreambot.api.script.impl.TaskScript;
 public class Main extends TaskScript {
     @Override
     public void onStart() {
-        addNodes(new InputName(), new ChangeLook(), new GuidePart(), new SurvivalPart());
+        addNodes(
+                new InputName(),
+                new ChangeLook(),
+                new GuidePart(),
+                new SurvivalPart(),
+                new CookPart(),
+                new GuidePart());
     }
 
 

@@ -10,18 +10,14 @@ public class ChangeLook extends TaskNode {
 
     @Override
     public boolean accept() {
-        if (Widgets.get(679, 12) != null) {
 
-            return Widgets.get(679, 12).isVisible() && Widgets.get(679, 12) != null;
-        } else {
-            return false;
+        return Widgets.get(679, 12) != null && Widgets.get(679, 12).isVisible();
 
-        }
     }
 
     @Override
     public int execute() {
-        Logger.info("We changing the look atm");
+        Logger.info("executing Change Look");
 
         for (int i = 1; i < Calculations.random(1, 10); i++) {
             Widgets.get(679, 13).interact();

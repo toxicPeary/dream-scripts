@@ -1,6 +1,8 @@
 package value;
 
 import org.dreambot.api.methods.Calculations;
+import org.dreambot.api.methods.interactive.Players;
+import org.dreambot.api.wrappers.interactive.Player;
 
 public class Sleep {
     public static int sleepShort() {
@@ -11,5 +13,11 @@ public class Sleep {
     }
     public static int sleepLong() {
         return Calculations.random(250, 2250);
+    }
+    public static boolean animating() {
+        return Players.getLocal().isAnimating();
+    }
+    public static Player localPlayer() {
+        return Players.getLocal();
     }
 }

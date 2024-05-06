@@ -77,23 +77,23 @@ public class InputName extends TaskNode {
     @Override
     public boolean accept() {
         WidgetChild displayNameWidget = Widgets.get(558, 0);
-        if (displayNameWidget != null) {
-            return displayNameWidget.isVisible();
-        } else {
-            return false;
-        }
+
+
+        return displayNameWidget != null && displayNameWidget.isVisible();
+
 
     }
 
     @Override
     public int execute() {
+        Logger.info("executing Input Name Part");
         if (Widgets.get(558, 13).getText().contains("Great!")) {
             Widgets.get(558, 18).interact();
             sleep(Calculations.random(250, 1250));
         } else if (Widgets.get(558, 13).getText().contains("Sorry,")) {
             Widgets.get(558, 7).interact();
             sleep(Calculations.random(250, 1250));
-            Keyboard.type(Calculations.random(1,1000));
+            Keyboard.type(Calculations.random(1, 1000));
             sleep(Calculations.random(250, 1250));
             Widgets.get(558, 18).interact();
             sleep(Calculations.random(250, 1250));
