@@ -13,11 +13,9 @@ import org.dreambot.api.methods.walking.impl.Walking;
 import org.dreambot.api.script.TaskNode;
 import org.dreambot.api.utilities.Logger;
 
-import java.util.Objects;
-
-import static value.WidgetLib.*;
+import static value.Constants.cookingInside;
 import static value.Sleep.*;
-import static value.Constants.*;
+import static value.WidgetLib.*;
 
 public class CookPart extends TaskNode {
 

@@ -1,10 +1,7 @@
 package value;
-import org.dreambot.api.methods.interactive.NPCs;
+
 import org.dreambot.api.methods.map.Area;
 import org.dreambot.api.methods.map.Tile;
-import org.dreambot.api.methods.widget.Widgets;
-import org.dreambot.api.wrappers.interactive.NPC;
-import org.dreambot.api.wrappers.widgets.WidgetChild;
 
 public class Constants {
     public static final Area cookingInside = new Area(

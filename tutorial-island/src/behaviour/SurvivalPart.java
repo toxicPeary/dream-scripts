@@ -11,10 +11,8 @@ import org.dreambot.api.methods.map.Area;
 import org.dreambot.api.script.TaskNode;
 import org.dreambot.api.utilities.Logger;
 
-import java.util.Objects;
-
-import static value.WidgetLib.*;
 import static value.Sleep.*;
+import static value.WidgetLib.*;
 
 public class SurvivalPart extends TaskNode {
 
