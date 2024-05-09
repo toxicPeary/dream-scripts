@@ -20,7 +20,9 @@ public class Main extends TaskScript {
                 new SurvivalPart(),
                 new CookPart(),
                 new QuestGuidePart(),
-                new Mining());
+                new Mining(),
+                new CombatPart(),
+                new BankerPart());
     }
 
 

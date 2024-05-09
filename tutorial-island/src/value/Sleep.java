@@ -17,6 +17,9 @@ public class Sleep {
     public static boolean animating() {
         return Players.getLocal().isAnimating();
     }
+    public static boolean moving() {
+        return Players.getLocal().isMoving();
+    }
     public static Player localPlayer() {
         return Players.getLocal();
     }

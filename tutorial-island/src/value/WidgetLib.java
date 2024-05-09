@@ -38,5 +38,11 @@ public class WidgetLib {
     public static WidgetChild questWidget() {
         return Widgets.get(548, 65);
     }
+    public static WidgetChild equipmentWidget() {
+        return Widgets.get(548, 67);
+    }
+    public static WidgetChild equipmentStatsWidget() {
+        return Widgets.get(387, 1);
+    }
 
 }
