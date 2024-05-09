@@ -19,7 +19,8 @@ public class Main extends TaskScript {
                 new GuidePart(),
                 new SurvivalPart(),
                 new CookPart(),
-                new GuidePart());
+                new QuestGuidePart(),
+                new Mining());
     }
 
 

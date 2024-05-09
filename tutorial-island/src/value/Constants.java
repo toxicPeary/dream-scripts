@@ -5,7 +5,7 @@ import org.dreambot.api.methods.map.Tile;
 
 public class Constants {
     public static final Area cookingInside = new Area(
-            new Tile[] {
+            new Tile[]{
                     new Tile(3073, 3091, 0),
                     new Tile(3077, 3091, 0),
                     new Tile(3078, 3086, 0),
@@ -16,7 +16,7 @@ public class Constants {
             }
     );
     public static final Area outsideQuest = new Area(
-            new Tile[] {
+            new Tile[]{
                     new Tile(3072, 3088, 0),
                     new Tile(3072, 3092, 0),
                     new Tile(3076, 3094, 0),
@@ -38,7 +38,7 @@ public class Constants {
             }
     );
     public static final Area insideQuest = new Area(
-            new Tile[] {
+            new Tile[]{
                     new Tile(3080, 3119, 0),
                     new Tile(3080, 3123, 0),
                     new Tile(3082, 3125, 0),
@@ -46,5 +46,7 @@ public class Constants {
                     new Tile(3089, 3119, 0)
             }
     );
-
+    public static final Area closeSurvivalExpert = new Area(3098, 3100, 3106, 3093);
+    public static final Area miningArea = new Area(3071, 9512, 3094, 9493);
+    public static final Area combatArea = new Area(3095, 9534, 3120, 9490);
 }

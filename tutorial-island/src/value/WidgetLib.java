@@ -8,6 +8,9 @@ public class WidgetLib {
     public static WidgetChild continueWidget231() {
         return Widgets.get(231, 5);
     }
+    public static WidgetChild continueWidget229() {
+        return Widgets.get(229, 2);
+    }
     public static WidgetChild continueWidget217() {
         return  Widgets.get(217, 5);
     }
@@ -24,16 +27,16 @@ public class WidgetLib {
         return Widgets.get(164, 41);
     }
     public static WidgetChild inventoryWidget() {
-        return Widgets.get(164, 55);
+        return Widgets.get(548, 66);
     }
     public static WidgetChild expWidget() {
-        return Widgets.get(164, 53);
+        return Widgets.get(548, 64);
     }
     public static WidgetChild textboxWidget() {
         return Widgets.get(263, 1, 0);
     }
     public static WidgetChild questWidget() {
-        return Widgets.get(164, 54);
+        return Widgets.get(548, 65);
     }
 
 }

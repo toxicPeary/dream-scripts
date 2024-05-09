@@ -8,11 +8,13 @@ import org.dreambot.api.methods.interactive.GameObjects;
 import org.dreambot.api.methods.interactive.NPCs;
 import org.dreambot.api.methods.interactive.Players;
 import org.dreambot.api.methods.map.Area;
+import org.dreambot.api.methods.walking.impl.Walking;
 import org.dreambot.api.script.TaskNode;
 import org.dreambot.api.utilities.Logger;
 
 import static value.Sleep.*;
 import static value.WidgetLib.*;
+import static value.Constants.*;
 
 public class SurvivalPart extends TaskNode {
 
@@ -39,8 +41,7 @@ public class SurvivalPart extends TaskNode {
             GameObjects.closest("Fire").interact();
             return sleepMedium();
         }
-        if (Inventory.contains("Wood") && Inventory.contains("Tinderbox")
-                && !animating()) {
+        if (textboxWidget().isVisible() && textboxWidget().getText().contains("Firemaking")) {
             Inventory.interact("Logs");
             sleep(sleepShort());
             Inventory.interact("Tinderbox");
@@ -51,6 +52,30 @@ public class SurvivalPart extends TaskNode {
                 && !animating()) {
 
             GameObjects.closest("Tree").interact();
+            return sleepMedium();
+        }
+        if (textboxWidget().isVisible() && textboxWidget().getText().contains("Fishing") && !animating() && !Inventory.contains("Raw shrimps")){
+            NPCs.closest("Fishing spot").interact("Net");
+            return sleepMedium();
+        }
+
+        if (textboxWidget().isVisible() && textboxWidget().getText().contains("You've been given an item") && inventoryWidget() != null) {
+            inventoryWidget().interact();
+            return sleepMedium();
+        }
+
+        if (textboxWidget().isVisible() && textboxWidget().getText().contains("Moving around") && !closeSurvivalExpert.contains(localPlayer())) {
+            Walking.walk(closeSurvivalExpert.getRandomTile());
+            sleep(sleepMedium());
+            if (!animating()) {
+                NPCs.closest("Survival Expert").interact("Talk-to");
+                return sleepMedium();
+            }
+            return sleepMedium();
+        }
+
+        if (continueWidget193() != null && continueWidget193().isVisible()) {
+            Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
         }
         if (continueWidget231() != null && continueWidget231().isVisible()) {

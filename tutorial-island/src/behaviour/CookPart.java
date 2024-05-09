@@ -46,11 +46,13 @@ public class CookPart extends TaskNode {
         if (Inventory.contains("Bread") && !animating()) {
             Walking.walk(new Tile(3074, 3089));
             sleep(sleepLong());
+            sleep(sleepLong());
+            sleep(sleepLong());
             GameObjects.closest("Door").interact();
         }
         if (Inventory.contains("Bread dough") && !animating()) {
             Inventory.interact("Bread dough");
-            sleep(sleepShort());
+            sleep(sleepLong());
             GameObjects.closest("Range").interact();
             return sleepMedium();
         }

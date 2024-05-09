@@ -7,6 +7,8 @@ import org.dreambot.api.script.TaskNode;
 import org.dreambot.api.utilities.Logger;
 import org.dreambot.api.wrappers.widgets.WidgetChild;
 
+import static value.Sleep.sleepLong;
+
 public class InputName extends TaskNode {
 
 
@@ -89,21 +91,23 @@ public class InputName extends TaskNode {
         Logger.info("executing Input Name Part");
         if (Widgets.get(558, 13).getText().contains("Great!")) {
             Widgets.get(558, 18).interact();
-            sleep(Calculations.random(250, 1250));
+            sleep(sleepLong());
         } else if (Widgets.get(558, 13).getText().contains("Sorry,")) {
             Widgets.get(558, 7).interact();
-            sleep(Calculations.random(250, 1250));
+            sleep(sleepLong());
             Keyboard.type(Calculations.random(1, 1000));
-            sleep(Calculations.random(250, 1250));
+            sleep(sleepLong());
             Widgets.get(558, 18).interact();
-            sleep(Calculations.random(250, 1250));
+            sleep(sleepLong());
         } else if (Widgets.get(558, 7).isVisible()) {
             Widgets.get(558, 7).interact("Enter name");
-            sleep(Calculations.random(250, 1250));
+            sleep(sleepLong());
             Keyboard.type(generateUsername());
-            sleep(Calculations.random(250, 1250));
-            Widgets.get(558, 18, 9).interact();
-            sleep(Calculations.random(250, 1250));
+            sleep(sleepLong());
+            if (Widgets.get(558, 18, 9) != null) {
+                Widgets.get(558, 18, 9).interact();
+            }
+            sleep(sleepLong());
             Logger.info("What");
         }
 
