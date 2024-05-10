@@ -25,25 +25,41 @@ public class BankerPart extends TaskNode {
 
     @Override
     public boolean accept() {
-        Area bankingArea = new Area(3107, 3132, 3134, 3113);
+        Area bankingArea = new Area(3107, 3132, 3129, 3113);
         return bankingArea.contains(localPlayer());
     }
 
     @Override
     public int execute() {
-        Logger.info("executing combat Part");
+        Logger.info("executing Banking Part");
 
 
 
 
 
+        if (textboxWidget().isVisible() && textboxWidget().getText().contains("Continue through the next door.") && !animating() && !moving()) {
+            if (!new Area(3128, 3123, 3129, 3124).contains(localPlayer())) {
+                Walking.walk(new Area(3128, 3123, 3129, 3124).getRandomTile());
+            } else {
+                GameObjects.closest("Door").interact();
+            }
+            return sleepMedium();
+        }
 
+        if (textboxWidget().isVisible() && textboxWidget().getText().contains("This is your Account Management") && !animating() && !moving()) {
+            NPCs.closest("Account Guide").interact("Talk-to");
+            return sleepMedium();
+        }
 
+        if (accountManagementWidget() != null && textboxWidget().isVisible() && textboxWidget().getText().contains("Click on the flashing icon") && !animating() && !moving()) {
+            accountManagementWidget().interact();
+            return sleepMedium();
+        }
 
-
-
-
-
+        if (textboxWidget().isVisible() && textboxWidget().getText().contains("The guide here will tell you") && !animating() && !moving()) {
+            NPCs.closest("Account Guide").interact("Talk-to");
+            return sleepMedium();
+        }
 
         if (textboxWidget().isVisible() && textboxWidget().getText().contains("Polls are run periodically to let the") && !animating() && !moving()) {
             if (!new Area(3124, 3124, 3124, 3124).contains(localPlayer())) {

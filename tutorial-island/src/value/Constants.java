@@ -48,6 +48,18 @@ public class Constants {
                     new Tile(3089, 3119, 0)
             }
     );
+    public static final Area prayerArea = new Area(
+            new Tile[] {
+                    new Tile(3120, 3110, 0),
+                    new Tile(3129, 3111, 0),
+                    new Tile(3129, 3123, 0),
+                    new Tile(3133, 3128, 0),
+                    new Tile(3146, 3123, 0),
+                    new Tile(3150, 3104, 0),
+                    new Tile(3149, 3103, 0),
+                    new Tile(3120, 3103, 0)
+            }
+    );
     public static final Area closeSurvivalExpert = new Area(3098, 3100, 3106, 3093);
     public static final Area miningArea = new Area(3071, 9512, 3094, 9493);
     public static final Area combatArea = new Area(3095, 9534, 3120, 9490);

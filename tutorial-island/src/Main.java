@@ -22,7 +22,9 @@ public class Main extends TaskScript {
                 new QuestGuidePart(),
                 new Mining(),
                 new CombatPart(),
-                new BankerPart());
+                new BankerPart(),
+                new PrayerPart(),
+                new MagePart());
     }
 
 

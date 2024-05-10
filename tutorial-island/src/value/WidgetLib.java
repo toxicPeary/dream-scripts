@@ -44,5 +44,17 @@ public class WidgetLib {
     public static WidgetChild equipmentStatsWidget() {
         return Widgets.get(387, 1);
     }
+    public static WidgetChild accountManagementWidget() {
+        return Widgets.get(548, 48);
+    }
+    public static WidgetChild prayerWidget() {
+        return Widgets.get(548, 68);
+    }
+    public static WidgetChild friendsWidget() {
+        return Widgets.get(548, 49);
+    }
+    public static WidgetChild magicWidget() {
+        return Widgets.get(548, 69);
+    }
 
 }
