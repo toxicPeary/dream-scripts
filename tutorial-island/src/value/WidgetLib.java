@@ -20,12 +20,6 @@ public class WidgetLib {
     public static WidgetChild continueWidget193() {
         return  Widgets.get(193, 0, 2);
     }
-    public static WidgetChild experienceWidget() {
-        return Widgets.get(219, 1, 0);
-    }
-    public static WidgetChild settingsWidget() {
-        return Widgets.get(164, 41);
-    }
     public static WidgetChild inventoryWidget() {
         return Widgets.get(548, 66);
     }
@@ -42,7 +36,7 @@ public class WidgetLib {
         return Widgets.get(548, 67);
     }
     public static WidgetChild equipmentStatsWidget() {
-        return Widgets.get(387, 1);
+        return Widgets.get(387,1);
     }
     public static WidgetChild accountManagementWidget() {
         return Widgets.get(548, 48);

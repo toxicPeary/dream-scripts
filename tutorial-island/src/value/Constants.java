@@ -18,25 +18,19 @@ public class Constants {
             }
     );
     public static final Area outsideQuest = new Area(
-            new Tile[]{
-                    new Tile(3072, 3088, 0),
-                    new Tile(3072, 3092, 0),
-                    new Tile(3076, 3094, 0),
-                    new Tile(3076, 3097, 0),
-                    new Tile(3076, 3099, 0),
-                    new Tile(3081, 3099, 0),
-                    new Tile(3083, 3107, 0),
-                    new Tile(3084, 3117, 0),
-                    new Tile(3079, 3118, 0),
-                    new Tile(3079, 3123, 0),
-                    new Tile(3082, 3126, 0),
+            new Tile[] {
+                    new Tile(3073, 3092, 0),
+                    new Tile(3073, 3088, 0),
+                    new Tile(3054, 3090, 0),
+                    new Tile(3064, 3113, 0),
+                    new Tile(3072, 3136, 0),
+                    new Tile(3092, 3136, 0),
                     new Tile(3090, 3126, 0),
-                    new Tile(3090, 3133, 0),
-                    new Tile(3067, 3133, 0),
-                    new Tile(3054, 3109, 0),
-                    new Tile(3057, 3091, 0),
-                    new Tile(3068, 3082, 0),
-                    new Tile(3072, 3082, 0)
+                    new Tile(3081, 3126, 0),
+                    new Tile(3079, 3123, 0),
+                    new Tile(3081, 3099, 0),
+                    new Tile(3077, 3099, 0),
+                    new Tile(3074, 3092, 0)
             }
     );
     public static final Area insideQuest = new Area(
@@ -64,5 +58,5 @@ public class Constants {
     public static final Area miningArea = new Area(3071, 9512, 3094, 9493);
     public static final Area combatArea = new Area(3095, 9534, 3120, 9490);
     public static final Area combatTut = new Area(3103, 9503, 3110, 9514);
-    public static final NPC combatInstructor = NPCs.closest("Combat Instructor");
+
 }

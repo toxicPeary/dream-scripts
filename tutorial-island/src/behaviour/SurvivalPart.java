@@ -31,17 +31,16 @@ public class SurvivalPart extends TaskNode {
     @Override
     public int execute() {
         Logger.info("executing Survival Part");
-        if (Inventory.contains("Shrimps") && !animating()
-                && GameObjects.closest("Gate") != null) {
+        if (Inventory.contains("Shrimps") && GameObjects.closest("Gate") != null && !animating() && !moving()) {
             GameObjects.closest("Gate").interact();
         } else if (textboxWidget().getText().contains("Cooking")
-                && textboxWidget().isVisible() && !animating()) {
+                && textboxWidget().isVisible()  && !animating() && !moving()) {
             Inventory.interact("Raw shrimps");
             sleep(sleepShort());
             GameObjects.closest("Fire").interact();
             return sleepMedium();
         }
-        if (textboxWidget().isVisible() && textboxWidget().getText().contains("Firemaking")) {
+        if (textboxWidget().isVisible() && textboxWidget().getText().contains("Firemaking") && !animating() && !moving()) {
             Inventory.interact("Logs");
             sleep(sleepShort());
             Inventory.interact("Tinderbox");
@@ -49,54 +48,54 @@ public class SurvivalPart extends TaskNode {
         }
         if (textboxWidget().getText().contains("Woodcutting")
                 && textboxWidget().isVisible()
-                && !animating()) {
+                && !animating() && !moving()) {
 
             GameObjects.closest("Tree").interact();
             return sleepMedium();
         }
-        if (textboxWidget().isVisible() && textboxWidget().getText().contains("Fishing") && !animating() && !Inventory.contains("Raw shrimps")){
+        if (textboxWidget().isVisible() && textboxWidget().getText().contains("Fishing") && !Inventory.contains("Raw shrimps") && !animating() && !moving()){
             NPCs.closest("Fishing spot").interact("Net");
             return sleepMedium();
         }
 
-        if (textboxWidget().isVisible() && textboxWidget().getText().contains("You've been given an item") && inventoryWidget() != null) {
+        if (textboxWidget().isVisible() && textboxWidget().getText().contains("You've been given an item") && inventoryWidget() != null && !animating() && !moving()) {
             inventoryWidget().interact();
             return sleepMedium();
         }
 
-        if (textboxWidget().isVisible() && textboxWidget().getText().contains("Moving around") && !closeSurvivalExpert.contains(localPlayer())) {
+        if (textboxWidget().isVisible() && textboxWidget().getText().contains("Moving around") && !closeSurvivalExpert.contains(localPlayer()) && !animating() && !moving()) {
             Walking.walk(closeSurvivalExpert.getRandomTile());
             sleep(sleepMedium());
-            if (!animating()) {
+            if (!animating() && !moving()) {
                 NPCs.closest("Survival Expert").interact("Talk-to");
                 return sleepMedium();
             }
             return sleepMedium();
         }
 
-        if (continueWidget193() != null && continueWidget193().isVisible()) {
+        if (continueWidget193() != null && continueWidget193().isVisible() && !animating() && !moving()) {
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
         }
-        if (continueWidget231() != null && continueWidget231().isVisible()) {
+        if (continueWidget231() != null && continueWidget231().isVisible() && !animating() && !moving()) {
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
         }
-        if (continueWidget217() != null && continueWidget217().isVisible()) {
+        if (continueWidget217() != null && continueWidget217().isVisible() && !animating() && !moving()) {
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
         }
-        if (continueWidget11() != null && continueWidget11().isVisible()) {
+        if (continueWidget11() != null && continueWidget11().isVisible() && !animating() && !moving()) {
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
         }
         if (textboxWidget().getText().contains("You've gained some experience")
-                && textboxWidget().isVisible()) {
+                && textboxWidget().isVisible() && !animating() && !moving()) {
             expWidget().interact();
             return sleepMedium();
         }
         if (textboxWidget().getText().contains("Skills and Experience")
-                && textboxWidget().isVisible()) {
+                && textboxWidget().isVisible() && !animating() && !moving()) {
             NPCs.closest("Survival Expert").interact("Talk-to");
             return sleepMedium();
         }

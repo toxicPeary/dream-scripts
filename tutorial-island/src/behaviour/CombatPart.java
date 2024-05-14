@@ -50,7 +50,7 @@ public class CombatPart extends TaskNode {
         if (textboxWidget().isVisible() && textboxWidget().getText().contains("Pass through the gate") && !moving() && !animating()) {
             GameObjects.closest("Gate").interact();
             sleep(Calculations.random(3000, 5000));
-            combatInstructor.interact("Talk-to");
+            combatInstructor().interact("Talk-to");
             return sleepMedium();
         }
 
@@ -64,55 +64,55 @@ public class CombatPart extends TaskNode {
             return sleepMedium();
         }
 
-        if (Widgets.get(548, 63) != null && textboxWidget().isVisible() && textboxWidget().getText().contains("Click on the flashing")) {
+        if (Widgets.get(548, 63) != null && textboxWidget().isVisible() && textboxWidget().getText().contains("Click on the flashing") && !animating() && !moving()) {
             Widgets.get(548, 63).interact();
             return sleepMedium();
         }
 
-        if (textboxWidget().isVisible() && textboxWidget().getText().contains("To unequip an item,")) {
+        if (textboxWidget().isVisible() && textboxWidget().getText().contains("To unequip an item,") && !animating() && !moving()) {
             Inventory.interact("Bronze sword", "Wield");
             sleep(sleepLong());
             Inventory.interact("Wooden shield", "Wield");
             return sleepMedium();
         }
 
-        if (textboxWidget().isVisible() && textboxWidget().getText().contains("You're now holding your dagger.")) {
-            combatInstructor.interact("Talk-to");
+        if (textboxWidget().isVisible() && textboxWidget().getText().contains("You're now holding your dagger.") && !animating() && !moving()) {
+            combatInstructor().interact("Talk-to");
             return sleepLong();
         }
-        if (textboxWidget().isVisible() && textboxWidget().getText().contains("You can see what items you are wearing")) {
+        if (textboxWidget().isVisible() && textboxWidget().getText().contains("You can see what items you are wearing") && !animating() && !moving()) {
             Inventory.interact("Bronze dagger", "Equip");
             return sleepLong();
         }
 
-        if (equipmentStatsWidget() != null && textboxWidget().isVisible() && textboxWidget().getText().contains("This is your worn inventory.")) {
+        if (equipmentStatsWidget() != null && textboxWidget().isVisible() && textboxWidget().getText().contains("This is your worn inventory.") && !animating() && !moving()) {
             equipmentStatsWidget().interact();
             return sleepLong();
         }
 
-        if (equipmentWidget() != null && textboxWidget().isVisible() && textboxWidget().getText().contains("You now have access to a new interface")) {
+        if (equipmentWidget() != null && textboxWidget().isVisible() && textboxWidget().getText().contains("You now have access to a new interface") && !animating() && !moving()) {
             equipmentWidget().interact();
             return sleepLong();
         }
-       if (textboxWidget().isVisible() && textboxWidget().getText().contains("In this area you will find out about melee")) {
+       if (textboxWidget().isVisible() && textboxWidget().getText().contains("In this area you will find out about melee") && !animating() && !moving()) {
            if (!combatTut.contains(localPlayer())){
                Walking.walk(combatTut.getRandomTile());
            } else {
-            combatInstructor.interact("Talk-to");
+            combatInstructor().interact("Talk-to");
            }
            return sleepLong();
        }
-        if (continueWidget231() != null && continueWidget231().isVisible()) {
+        if (continueWidget231() != null && continueWidget231().isVisible() && !animating() && !moving()) {
             Logger.info("2");
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
         }
-        if (continueWidget217() != null && continueWidget217().isVisible()) {
+        if (continueWidget217() != null && continueWidget217().isVisible() && !animating() && !moving()) {
             Logger.info("2");
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
         }
-        if (continueWidget11() != null && continueWidget11().isVisible()) {
+        if (continueWidget11() != null && continueWidget11().isVisible() && !animating() && !moving()) {
             Logger.info("2");
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();

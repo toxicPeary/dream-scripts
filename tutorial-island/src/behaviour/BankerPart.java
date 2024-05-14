@@ -80,27 +80,27 @@ public class BankerPart extends TaskNode {
             return sleepMedium();
         }
 
-        if (continueWidget231() != null && continueWidget231().isVisible()) {
+        if (continueWidget231() != null && continueWidget231().isVisible() && !animating() && !moving()) {
             Logger.info("2");
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
         }
-        if (continueWidget217() != null && continueWidget217().isVisible()) {
+        if (continueWidget217() != null && continueWidget217().isVisible() && !animating() && !moving()) {
             Logger.info("2");
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
         }
-        if (continueWidget11() != null && continueWidget11().isVisible()) {
+        if (continueWidget11() != null && continueWidget11().isVisible() && !animating() && !moving()) {
             Logger.info("2");
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
         }
-        if (continueWidget229() != null && continueWidget229().isVisible()) {
+        if (continueWidget229() != null && continueWidget229().isVisible() && !animating() && !moving()) {
             Logger.info("2");
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
         }
-        if (continueWidget193() != null && continueWidget193().isVisible()) {
+        if (continueWidget193() != null && continueWidget193().isVisible() && !animating() && !moving()) {
             Logger.info("2");
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
