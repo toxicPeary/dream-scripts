@@ -12,9 +12,9 @@ import org.dreambot.api.methods.walking.impl.Walking;
 import org.dreambot.api.script.TaskNode;
 import org.dreambot.api.utilities.Logger;
 
+import static value.Constants.closeSurvivalExpert;
 import static value.Sleep.*;
 import static value.WidgetLib.*;
-import static value.Constants.*;
 
 public class SurvivalPart extends TaskNode {
 
@@ -38,7 +38,7 @@ public class SurvivalPart extends TaskNode {
             Inventory.interact("Raw shrimps");
             sleep(sleepShort());
             GameObjects.closest("Fire").interact();
-            return sleepMedium();
+            return sleepLong();
         }
         if (textboxWidget().isVisible() && textboxWidget().getText().contains("Firemaking") && !animating() && !moving()) {
             Inventory.interact("Logs");
@@ -65,27 +65,39 @@ public class SurvivalPart extends TaskNode {
 
         if (textboxWidget().isVisible() && textboxWidget().getText().contains("Moving around") && !closeSurvivalExpert.contains(localPlayer()) && !animating() && !moving()) {
             Walking.walk(closeSurvivalExpert.getRandomTile());
-            sleep(sleepMedium());
-            if (!animating() && !moving()) {
-                NPCs.closest("Survival Expert").interact("Talk-to");
-                return sleepMedium();
-            }
+            return sleepMedium();
+        }
+        if (textboxWidget().isVisible() && textboxWidget().getText().contains("Moving around") && closeSurvivalExpert.contains(localPlayer()) && !animating() && !moving()) {
+            NPCs.closest("Survival Expert").interact("Talk-to");
             return sleepMedium();
         }
 
-        if (continueWidget193() != null && continueWidget193().isVisible() && !animating() && !moving()) {
+        if (continueWidget229() != null && continueWidget229().isVisible() && !animating() && !moving()) {
+            Logger.info("2");
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
         }
         if (continueWidget231() != null && continueWidget231().isVisible() && !animating() && !moving()) {
+            Logger.info("2");
+            Keyboard.typeKey(Key.SPACE);
+            return sleepMedium();
+        }
+        if (continueWidget193() != null && continueWidget193().isVisible() && !animating() && !moving()) {
+            Logger.info("2");
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
         }
         if (continueWidget217() != null && continueWidget217().isVisible() && !animating() && !moving()) {
+            Logger.info("2");
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
         }
         if (continueWidget11() != null && continueWidget11().isVisible() && !animating() && !moving()) {
+            Logger.info("2");
+            Keyboard.typeKey(Key.SPACE);
+            return sleepMedium();
+        }
+        if (continueWidget162() != null && continueWidget162().isVisible() && !animating() && !moving()) {
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
         }

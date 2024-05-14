@@ -7,15 +7,14 @@ import org.dreambot.api.methods.Calculations;
 import org.dreambot.api.methods.container.impl.Inventory;
 import org.dreambot.api.methods.interactive.GameObjects;
 import org.dreambot.api.methods.interactive.NPCs;
-import org.dreambot.api.methods.interactive.Players;
 import org.dreambot.api.methods.map.Area;
-import org.dreambot.api.methods.map.Tile;
 import org.dreambot.api.methods.walking.impl.Walking;
 import org.dreambot.api.methods.widget.Widgets;
 import org.dreambot.api.script.TaskNode;
 import org.dreambot.api.utilities.Logger;
 
-import static value.Constants.*;
+import static value.Constants.combatArea;
+import static value.Constants.combatTut;
 import static value.Sleep.*;
 import static value.WidgetLib.*;
 
@@ -33,7 +32,7 @@ public class CombatPart extends TaskNode {
         Logger.info("executing combat Part");
 
 
-        if (Widgets.get(229,1) != null && Widgets.get(229, 1).isVisible() && Widgets.get(229, 1).getText().contains("You've already done that.") && !moving() && !animating()) {
+        if (textboxWidget() != null && textboxWidget().isVisible() && textboxWidget().getText().contains("Moving on") && !moving() && !animating()) {
             GameObjects.closest("Ladder").interact("Climb-up");
             return sleepMedium();
         }
@@ -47,24 +46,35 @@ public class CombatPart extends TaskNode {
             return sleepMedium();
         }
 
-        if (textboxWidget().isVisible() && textboxWidget().getText().contains("Pass through the gate") && !moving() && !animating()) {
+        if (textboxWidget().isVisible() && textboxWidget().getText().contains("Pass through the gate") &&  !moving() && !animating() ) {
             GameObjects.closest("Gate").interact();
-            sleep(Calculations.random(3000, 5000));
+            sleep(Calculations.random(5000, 7000));
             combatInstructor().interact("Talk-to");
-            return sleepMedium();
+            return Calculations.random(3000, 5000);
         }
+
 
         if (textboxWidget().isVisible() && textboxWidget().getText().contains("It's time to slay some rats!") && !moving() && !animating()) {
             NPCs.closest("Giant rat").interact("Attack");
             return sleepMedium();
         }
 
-        if (textboxWidget().isVisible() && textboxWidget().getText().contains("This is your combat interface.") && !moving() && !animating()) {
-            GameObjects.closest("Gate").interact();
+        if (textboxWidget().isVisible()
+                && textboxWidget().getText().contains("This is your combat interface.")
+                && !moving()
+                && !animating()
+                && !new Area(3110, 9521, 3115, 9515).contains(localPlayer())) {
+            Walking.walk(new Area(3110, 9521, 3115, 9515).getRandomTile());
             return sleepMedium();
+        } else if(textboxWidget().isVisible()
+                && textboxWidget().getText().contains("This is your combat interface.")
+                && !moving()
+                && !animating()
+                && new Area(3110, 9521, 3115, 9515).contains(localPlayer())) {
+            GameObjects.closest("Gate").interact("Open");
         }
 
-        if (Widgets.get(548, 63) != null && textboxWidget().isVisible() && textboxWidget().getText().contains("Click on the flashing") && !animating() && !moving()) {
+        if (Widgets.get(548, 63) != null && textboxWidget().isVisible() && textboxWidget().getText().contains("open the combat interface") && !animating() && !moving()) {
             Widgets.get(548, 63).interact();
             return sleepMedium();
         }
@@ -91,7 +101,7 @@ public class CombatPart extends TaskNode {
         }
 
         if (equipmentWidget() != null && textboxWidget().isVisible() && textboxWidget().getText().contains("You now have access to a new interface") && !animating() && !moving()) {
-            equipmentWidget().interact();
+            equipmentWidget().interact("Worn Equipment");
             return sleepLong();
         }
        if (textboxWidget().isVisible() && textboxWidget().getText().contains("In this area you will find out about melee") && !animating() && !moving()) {
@@ -102,7 +112,17 @@ public class CombatPart extends TaskNode {
            }
            return sleepLong();
        }
+        if (continueWidget229() != null && continueWidget229().isVisible() && !animating() && !moving()) {
+            Logger.info("2");
+            Keyboard.typeKey(Key.SPACE);
+            return sleepMedium();
+        }
         if (continueWidget231() != null && continueWidget231().isVisible() && !animating() && !moving()) {
+            Logger.info("2");
+            Keyboard.typeKey(Key.SPACE);
+            return sleepMedium();
+        }
+        if (continueWidget193() != null && continueWidget193().isVisible() && !animating() && !moving()) {
             Logger.info("2");
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
@@ -114,6 +134,10 @@ public class CombatPart extends TaskNode {
         }
         if (continueWidget11() != null && continueWidget11().isVisible() && !animating() && !moving()) {
             Logger.info("2");
+            Keyboard.typeKey(Key.SPACE);
+            return sleepMedium();
+        }
+        if (continueWidget162() != null && continueWidget162().isVisible() && !animating() && !moving()) {
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
         }

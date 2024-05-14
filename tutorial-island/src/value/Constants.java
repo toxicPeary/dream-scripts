@@ -1,9 +1,7 @@
 package value;
 
-import org.dreambot.api.methods.interactive.NPCs;
 import org.dreambot.api.methods.map.Area;
 import org.dreambot.api.methods.map.Tile;
-import org.dreambot.api.wrappers.interactive.NPC;
 
 public class Constants {
     public static final Area cookingInside = new Area(
@@ -54,7 +52,7 @@ public class Constants {
                     new Tile(3120, 3103, 0)
             }
     );
-    public static final Area closeSurvivalExpert = new Area(3098, 3100, 3106, 3093);
+    public static final Area closeSurvivalExpert = new Area(3098, 3198, 3106, 3093);
     public static final Area miningArea = new Area(3071, 9512, 3094, 9493);
     public static final Area combatArea = new Area(3095, 9534, 3120, 9490);
     public static final Area combatTut = new Area(3103, 9503, 3110, 9514);

@@ -24,7 +24,8 @@ public class Main extends TaskScript {
                 new CombatPart(),
                 new BankerPart(),
                 new PrayerPart(),
-                new MagePart());
+                new MagePart(),
+                new TutFinished());
     }
 
 

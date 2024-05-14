@@ -1,21 +1,19 @@
 package behaviour;
 
 
+import org.dreambot.api.ClientSettings;
+import org.dreambot.api.data.ClientLayout;
 import org.dreambot.api.input.Keyboard;
 import org.dreambot.api.input.event.impl.keyboard.awt.Key;
 import org.dreambot.api.methods.Calculations;
-import org.dreambot.api.methods.container.impl.Inventory;
 import org.dreambot.api.methods.interactive.GameObjects;
 import org.dreambot.api.methods.interactive.NPCs;
 import org.dreambot.api.methods.interactive.Players;
 import org.dreambot.api.methods.map.Area;
-import org.dreambot.api.methods.map.Tile;
-import org.dreambot.api.methods.walking.impl.Walking;
 import org.dreambot.api.methods.widget.Widgets;
 import org.dreambot.api.script.TaskNode;
 import org.dreambot.api.utilities.Logger;
 
-import static value.Constants.cookingInside;
 import static value.Sleep.*;
 import static value.WidgetLib.*;
 
@@ -30,10 +28,33 @@ public class GuidePart extends TaskNode {
 
     @Override
     public int execute() {
+
+
+
+
         Logger.info("executing Guide Part");
-        if (textboxWidget().isVisible() && textboxWidget().getText().contains("Moving on") && !animating() && !moving()) {
+        if (textboxWidget().isVisible()
+                && textboxWidget().getText().contains("Moving on")
+                && !animating()
+                && !moving()
+                && ClientSettings.areRoofsHidden()
+                && ClientSettings.getClientLayout() == ClientLayout.FIXED_CLASSIC) {
             GameObjects.closest("Door").interact();
             return sleepLong();
+        }
+        if (textboxWidget().isVisible()
+                && textboxWidget().getText().contains("Moving on")
+                && !animating()
+                && !moving()
+                && !ClientSettings.areRoofsHidden()) {
+            ClientSettings.toggleRoofs(false);
+        }
+        if (textboxWidget().isVisible()
+                && textboxWidget().getText().contains("Moving on")
+                && !animating()
+                && !moving()
+                && ClientSettings.getClientLayout() != ClientLayout.FIXED_CLASSIC) {
+            ClientSettings.setClientLayout(ClientLayout.FIXED_CLASSIC);
         }
 
         if (textboxWidget().isVisible() && textboxWidget().getText().contains("On the side panel,") && !animating() && !moving()) {
@@ -65,6 +86,11 @@ public class GuidePart extends TaskNode {
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
         }
+        if (continueWidget193() != null && continueWidget193().isVisible() && !animating() && !moving()) {
+            Logger.info("2");
+            Keyboard.typeKey(Key.SPACE);
+            return sleepMedium();
+        }
         if (continueWidget217() != null && continueWidget217().isVisible() && !animating() && !moving()) {
             Logger.info("2");
             Keyboard.typeKey(Key.SPACE);
@@ -75,7 +101,12 @@ public class GuidePart extends TaskNode {
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
         }
+        if (continueWidget162() != null && continueWidget162().isVisible() && !animating() && !moving()) {
+            Keyboard.typeKey(Key.SPACE);
+            return sleepMedium();
+        }
 
         return sleepMedium();
     }
+
 }

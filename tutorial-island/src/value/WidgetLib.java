@@ -1,6 +1,5 @@
 package value;
 
-import org.dreambot.api.methods.widget.Widget;
 import org.dreambot.api.methods.widget.Widgets;
 import org.dreambot.api.wrappers.widgets.WidgetChild;
 
@@ -17,9 +16,15 @@ public class WidgetLib {
     public static WidgetChild continueWidget11() {
         return  Widgets.get(11, 4);
     }
+    public static WidgetChild continueWidget162() {
+        return  Widgets.get(162, 42);
+    }
     public static WidgetChild continueWidget193() {
         return  Widgets.get(193, 0, 2);
     }
+
+
+
     public static WidgetChild inventoryWidget() {
         return Widgets.get(548, 66);
     }

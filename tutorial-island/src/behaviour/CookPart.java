@@ -43,7 +43,7 @@ public class CookPart extends TaskNode {
     @Override
     public int execute() {
         Logger.info("executing Cook Part");
-        if (Inventory.contains("Bread") && !animating() && !moving()) {
+        if (textboxWidget().getText().contains("Moving on") && textboxWidget().isVisible() && !animating() && !moving()) {
             Walking.walk(new Tile(3074, 3089));
             sleep(sleepLong());
             sleep(sleepLong());
@@ -61,9 +61,28 @@ public class CookPart extends TaskNode {
             Inventory.interact("Pot of flour");
             sleep(sleepShort());
             Inventory.interact("Bucket of water");
+            return sleepLong();
+        }
+        if (textboxWidget().getText().contains("Cooking") && textboxWidget().isVisible() && !animating() && !moving()) {
+            NPCs.closest("Master Chef").interact("Talk-to");
+            return sleepMedium();
+        }
+        if (GameObjects.closest("Door") != null
+                && !cookingInside.contains(Players.getLocal()) && !animating() && !moving()) {
+            GameObjects.closest("Door").interact();
+            return sleepMedium();
+        }
+        if (continueWidget229() != null && continueWidget229().isVisible() && !animating() && !moving()) {
+            Logger.info("2");
+            Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
         }
         if (continueWidget231() != null && continueWidget231().isVisible() && !animating() && !moving()) {
+            Logger.info("2");
+            Keyboard.typeKey(Key.SPACE);
+            return sleepMedium();
+        }
+        if (continueWidget193() != null && continueWidget193().isVisible() && !animating() && !moving()) {
             Logger.info("2");
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
@@ -78,13 +97,8 @@ public class CookPart extends TaskNode {
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
         }
-        if (textboxWidget().getText().contains("Cooking") && textboxWidget().isVisible() && !animating() && !moving()) {
-            NPCs.closest("Master Chef").interact("Talk-to");
-            return sleepMedium();
-        }
-        if (GameObjects.closest("Door") != null
-                && !cookingInside.contains(Players.getLocal()) && !animating() && !moving()) {
-            GameObjects.closest("Door").interact();
+        if (continueWidget162() != null && continueWidget162().isVisible() && !animating() && !moving()) {
+            Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
         }
 

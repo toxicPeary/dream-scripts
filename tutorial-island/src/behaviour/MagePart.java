@@ -3,20 +3,13 @@ package behaviour;
 
 import org.dreambot.api.input.Keyboard;
 import org.dreambot.api.input.event.impl.keyboard.awt.Key;
-import org.dreambot.api.methods.Calculations;
-import org.dreambot.api.methods.container.impl.Inventory;
-import org.dreambot.api.methods.interactive.GameObjects;
 import org.dreambot.api.methods.interactive.NPCs;
-import org.dreambot.api.methods.interactive.Players;
 import org.dreambot.api.methods.map.Area;
-import org.dreambot.api.methods.map.Tile;
 import org.dreambot.api.methods.walking.impl.Walking;
 import org.dreambot.api.methods.widget.Widgets;
 import org.dreambot.api.script.TaskNode;
 import org.dreambot.api.utilities.Logger;
-import org.dreambot.api.wrappers.interactive.GameObject;
 
-import static value.Constants.*;
 import static value.Sleep.*;
 import static value.WidgetLib.*;
 
@@ -34,6 +27,19 @@ public class MagePart extends TaskNode {
         Logger.info("executing Mage Part");
 
         //check for different dialogue and press on the correct one in either one of the scenarios
+
+        if (Widgets.get(219, 1, 1) != null && Widgets.get(219, 1, 1).isVisible() && Widgets.get(219, 1, 1).getText().contains("Yes, send me to the mainland") && !animating() && !moving()) {
+            Widgets.get(219, 1, 1).interact();
+            return sleepLong();
+        } else if (Widgets.get(219, 1, 2) != null && Widgets.get(219, 1, 2).isVisible() && Widgets.get(219, 1, 2).getText().contains("Yes, send me to the mainland") && !animating() && !moving()) {
+            Widgets.get(219, 1, 2).interact();
+            return sleepLong();
+        } else if (Widgets.get(219, 1, 3) != null && Widgets.get(219, 1, 3).isVisible() && Widgets.get(219, 1, 3).getText().contains("Yes, send me to the mainland") && !animating() && !moving()) {
+            Widgets.get(219, 1, 3).interact();
+            return sleepLong();
+        }
+
+
         if (Widgets.get(219, 1, 1) != null && Widgets.get(219, 1, 1).isVisible() && Widgets.get(219, 1, 1).getText().contains("No,") && !animating() && !moving()) {
             Widgets.get(219, 1, 1).interact();
             return sleepLong();
@@ -54,7 +60,7 @@ public class MagePart extends TaskNode {
             return sleepLong();
         }
 
-        if (textboxWidget().isVisible() && textboxWidget().getText().contains("You're nearly finished") && !animating() && !moving()) {
+        if (textboxWidget() != null && textboxWidget().isVisible() && textboxWidget().getText().contains("You're nearly finished") && !animating() && !moving()) {
             NPCs.closest("Magic Instructor").interact("Talk-to");
             return sleepLong();
         }
@@ -66,7 +72,7 @@ public class MagePart extends TaskNode {
             return sleepLong();
         }
 
-        if (textboxWidget().isVisible() && textboxWidget().getText().contains("This is your magic interface.") && !animating() && !moving()) {
+        if (textboxWidget() != null &&textboxWidget().isVisible() && textboxWidget().getText().contains("This is your magic interface.") && !animating() && !moving()) {
             NPCs.closest("Magic Instructor").interact("Talk-to");
             return sleepLong();
         }
@@ -76,7 +82,7 @@ public class MagePart extends TaskNode {
             return sleepLong();
         }
 
-        if (textboxWidget().isVisible() && textboxWidget().getText().contains("Follow the path to the")  && !animating()) {
+        if (textboxWidget() != null &&textboxWidget().isVisible() && textboxWidget().getText().contains("Follow the path to the")  && !animating()) {
             if (!new Area(3137, 3091, 3141, 3082).contains(localPlayer())) {
                 Walking.walk(new Area(3137, 3091, 3141, 3082).getRandomTile());
                 return sleepLong();
@@ -86,7 +92,17 @@ public class MagePart extends TaskNode {
             return sleepLong();
         }
 
+        if (continueWidget229() != null && continueWidget229().isVisible() && !animating() && !moving()) {
+            Logger.info("2");
+            Keyboard.typeKey(Key.SPACE);
+            return sleepMedium();
+        }
         if (continueWidget231() != null && continueWidget231().isVisible() && !animating() && !moving()) {
+            Logger.info("2");
+            Keyboard.typeKey(Key.SPACE);
+            return sleepMedium();
+        }
+        if (continueWidget193() != null && continueWidget193().isVisible() && !animating() && !moving()) {
             Logger.info("2");
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
@@ -101,13 +117,7 @@ public class MagePart extends TaskNode {
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
         }
-        if (continueWidget229() != null && continueWidget229().isVisible() && !animating() && !moving()) {
-            Logger.info("2");
-            Keyboard.typeKey(Key.SPACE);
-            return sleepMedium();
-        }
-        if (continueWidget193() != null && continueWidget193().isVisible() && !animating() && !moving()) {
-            Logger.info("2");
+        if (continueWidget162() != null && continueWidget162().isVisible() && !animating() && !moving()) {
             Keyboard.typeKey(Key.SPACE);
             return sleepMedium();
         }

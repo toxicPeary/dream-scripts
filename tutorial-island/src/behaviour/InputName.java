@@ -36,7 +36,24 @@ public class InputName extends TaskNode {
     }
 
     private String generateUsername() {
-        String[] names = {"420", "Bane", "Bear", "Behemoth", "Big", "Black", "Blade", "Bleed", "Blood", "Blow", "Boar", "Boi", "Bolt", "Boulder", "Boy", "Break", "Brow", "Challenger", "Chaser", "Colossal", "Colossus", "Corrupter", "Crow", "Danger", "Dark", "Dead", "pelt", "Death", "Deceiver", "Die", "Dire", "Doom", "Dragon", "Dwarf", "Dwarven", "Fang", "Fierce", "Fist", "Flurry", "Freak", "Fury", "Fuse", "Giant", "Girl", "Gold", "Great", "Grim", "Grotesque", "Guthix", "Hallow", "Helm", "Hit", "Hollow", "Homie", "Hunter", "Insane", "Invincible", "Iron", "Ironfist", "Ironman", "Kill", "Killa", "Lion", "Lone", "Mammoth", "Man", "Mane", "Me", "Might", "Mighty", "Mithril", "Molten", "Myth", "Mythic", "Night", "Night", "owl", "One", "PK", "Paragon", "Pelt", "Poison", "Proud", "Pur3", "Pure", "Rage", "Raven", "Rebel", "Rock", "Rumble", "Savage", "Scar", "Sexy", "Shade", "Shield", "Shout", "Silent", "Silver", "Sk1ll", "Skill", "Skull", "Slayer", "Spirit", "Spook", "Steel", "Storm", "Stout", "Strong", "Swift", "Tempest", "The", "Thirst", "Thunder", "Tower", "True", "Voidmane", "White", "Wild", "Wildfist", "Wolf", "Zam", "Zammy", "Zero", "_", "axe", "bolt", "bow", "bronze", "brow", "chaser", "cleaver", "cold", "earth", "fang", "fierce", "fire", "flayer", "gaze", "hero", "hot", "ice", "killa", "knight", "mage", "man", "metal", "might", "rage", "scar", "snarl", "song", "sorrow", "stride", "strike", "strong", "sword", "sworn", "thorn", "throw", "tongue", "warrior", "wind", "wizard", "xX", "xox", "xxx"};
+        String[] names = {"420", "Bane", "Bear", "Behemoth", "Big", "Black", "Blade", "Bleed", "Blood"
+                , "Blow", "Boar", "Boi", "Bolt", "Boulder", "Boy", "Break", "Brow", "Challenger"
+                , "Chaser", "Colossal", "Colossus", "Corrupter", "Crow", "Danger", "Dark", "Dead"
+                , "pelt", "Death", "Deceiver", "Die", "Dire", "Doom", "Dragon", "Dwarf", "Dwarven"
+                , "Fang", "Fierce", "Fist", "Flurry", "Freak", "Fury", "Fuse", "Giant", "Girl", "Gold"
+                , "Great", "Grim", "Grotesque", "Guthix", "Hallow", "Helm", "Hit", "Hollow", "Homie"
+                , "Hunter", "Insane", "Invincible", "Iron", "Ironfist", "Ironman", "Kill", "Killa"
+                , "Lion", "Lone", "Mammoth", "Man", "Mane", "Me", "Might", "Mighty", "Mithril", "Molten"
+                , "Myth", "Mythic", "Night", "Night", "owl", "One", "PK", "Paragon", "Pelt", "Poison"
+                , "Proud", "Pur3", "Pure", "Rage", "Raven", "Rebel", "Rock", "Rumble", "Savage", "Scar"
+                , "Sexy", "Shade", "Shield", "Shout", "Silent", "Silver", "Sk1ll", "Skill", "Skull", "Slayer"
+                , "Spirit", "Spook", "Steel", "Storm", "Stout", "Strong", "Swift", "Tempest", "The", "Thirst"
+                , "Thunder", "Tower", "True", "Voidmane", "White", "Wild", "Wildfist", "Wolf"
+                , "Zam", "Zammy", "Zero", "_", "axe", "bolt", "bow", "bronze", "brow", "chaser"
+                , "cleaver", "cold", "earth", "fang", "fierce", "fire", "flayer", "gaze", "hero"
+                , "hot", "ice", "killa", "knight", "mage", "man", "metal", "might", "rage", "scar"
+                , "snarl", "song", "sorrow", "stride", "strike", "strong", "sword", "sworn", "thorn"
+                , "throw", "tongue", "warrior", "wind", "wizard", "xX", "xox", "xxx"};
         int nameCount = Calculations.random(2, 3), nameLen = Calculations.random(8, 12);
         String name = "";
         for (int i = 0; i < nameCount; i++) {
@@ -93,11 +110,8 @@ public class InputName extends TaskNode {
             Widgets.get(558, 18).interact();
             sleep(sleepLong());
         } else if (Widgets.get(558, 13).getText().contains("Sorry,") && !animating() && !moving()) {
-            Widgets.get(558, 7).interact();
-            sleep(sleepLong());
-            Keyboard.type(Calculations.random(1, 1000));
-            sleep(sleepLong());
-            Widgets.get(558, 18).interact();
+            int i = Calculations.random(0, 2);
+            Widgets.get(558, 15+i).interact();
             sleep(sleepLong());
         } else if (Widgets.get(558, 7).isVisible() && !animating() && !moving()) {
             Widgets.get(558, 7).interact("Enter name");
