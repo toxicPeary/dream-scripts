@@ -54,7 +54,7 @@ public class CombatPart extends TaskNode {
         }
 
 
-        if (textboxWidget().isVisible() && textboxWidget().getText().contains("It's time to slay some rats!") && !moving() && !animating()) {
+        if (textboxWidget().isVisible() && (textboxWidget().getText().contains("It's time to slay some rats!") || textboxWidget().getText().contains("Sit back and watch")) && !moving() && !animating()) {
             NPCs.closest("Giant rat").interact("Attack");
             return sleepMedium();
         }

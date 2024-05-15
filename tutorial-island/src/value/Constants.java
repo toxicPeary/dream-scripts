@@ -6,13 +6,19 @@ import org.dreambot.api.methods.map.Tile;
 public class Constants {
     public static final Area cookingInside = new Area(
             new Tile[]{
-                    new Tile(3073, 3091, 0),
-                    new Tile(3077, 3091, 0),
-                    new Tile(3078, 3086, 0),
-                    new Tile(3078, 3082, 0),
-                    new Tile(3076, 3080, 0),
-                    new Tile(3074, 3080, 0),
-                    new Tile(3073, 3083, 0)
+                    new Tile(3078,3083),
+                    new Tile(3076, 3083),
+                    new Tile(3076, 3082),
+                    new Tile(3075, 3082),
+                    new Tile(3075, 3085),
+                    new Tile(3074, 3085),
+                    new Tile(3074, 3089),
+                    new Tile(3073, 3089),
+                    new Tile(3073, 3090),
+                    new Tile(3075, 3090),
+                    new Tile(3075, 3085),
+                    new Tile(3078, 3085),
+
             }
     );
     public static final Area outsideQuest = new Area(
