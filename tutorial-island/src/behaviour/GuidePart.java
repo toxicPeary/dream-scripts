@@ -22,7 +22,7 @@ public class GuidePart extends TaskNode {
 
     @Override
     public boolean accept() {
-        Area insideGuide = new Area(3091, 3112, 3095, 3100);
+        Area insideGuide = new Area(3091, 3110, 3097, 3103);
         return insideGuide.contains(Players.getLocal());
     }
 
@@ -33,7 +33,7 @@ public class GuidePart extends TaskNode {
 
 
         Logger.info("executing Guide Part");
-        if (textboxWidget().isVisible()
+        if (textboxWidget() != null && textboxWidget().isVisible()
                 && textboxWidget().getText().contains("Moving on")
                 && !animating()
                 && !moving()
@@ -42,14 +42,14 @@ public class GuidePart extends TaskNode {
             GameObjects.closest("Door").interact();
             return sleepLong();
         }
-        if (textboxWidget().isVisible()
+        if (textboxWidget() != null && textboxWidget().isVisible()
                 && textboxWidget().getText().contains("Moving on")
                 && !animating()
                 && !moving()
                 && !ClientSettings.areRoofsHidden()) {
             ClientSettings.toggleRoofs(false);
         }
-        if (textboxWidget().isVisible()
+        if (textboxWidget() != null && textboxWidget().isVisible()
                 && textboxWidget().getText().contains("Moving on")
                 && !animating()
                 && !moving()
@@ -57,12 +57,12 @@ public class GuidePart extends TaskNode {
             ClientSettings.setClientLayout(ClientLayout.FIXED_CLASSIC);
         }
 
-        if (textboxWidget().isVisible() && textboxWidget().getText().contains("On the side panel,") && !animating() && !moving()) {
+        if (textboxWidget() != null && textboxWidget().isVisible() && textboxWidget().getText().contains("On the side panel,") && !animating() && !moving()) {
             NPCs.closest("Gielinor Guide").interact("Talk-to");
             return sleepMedium();
         }
 
-        if (Widgets.get(548, 51) != null && textboxWidget().isVisible() && textboxWidget().getText().contains("Please click on") && !animating() && !moving()) {
+        if (textboxWidget() != null && Widgets.get(548, 51) != null && textboxWidget().isVisible() && textboxWidget().getText().contains("Please click on") && !animating() && !moving()) {
             Widgets.get(548, 51).interact();
             return sleepMedium();
         }
@@ -72,7 +72,7 @@ public class GuidePart extends TaskNode {
             return sleepMedium();
         }
 
-        if (textboxWidget().isVisible() && textboxWidget().getText().contains("Getting started") && !animating() && !moving()) {
+        if (textboxWidget() != null && textboxWidget().isVisible() && textboxWidget().getText().contains("Getting started") && !animating() && !moving()) {
             NPCs.closest("Gielinor Guide").interact("Talk-to");
             return sleepMedium();
         }

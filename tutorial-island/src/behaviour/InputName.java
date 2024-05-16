@@ -54,7 +54,7 @@ public class InputName extends TaskNode {
                 , "hot", "ice", "killa", "knight", "mage", "man", "metal", "might", "rage", "scar"
                 , "snarl", "song", "sorrow", "stride", "strike", "strong", "sword", "sworn", "thorn"
                 , "throw", "tongue", "warrior", "wind", "wizard", "xX", "xox", "xxx"};
-        int nameCount = Calculations.random(2, 3), nameLen = Calculations.random(8, 12);
+        int nameCount = Calculations.random(2, 3), nameLen = Calculations.random(9, 12);
         String name = "";
         for (int i = 0; i < nameCount; i++) {
             String tmpName = names[Calculations.random(0, names.length - 1)];
@@ -76,7 +76,7 @@ public class InputName extends TaskNode {
                 if (Calculations.random(0, 1) == 1) {
                     tmprName = (name + tmpName).substring(0, nameLen);
                 } else {
-                    int r = Calculations.random(9, nameLen);
+                    int r = Calculations.random(8, nameLen);
                     tmprName = (name + tmpName).substring(0, r);
                     for (int ri = r; ri < 12; ri++) {
                         if (Calculations.random(0, 1) == 1) {
@@ -108,24 +108,24 @@ public class InputName extends TaskNode {
         Logger.info("executing Input Name Part");
         if (Widgets.get(558, 13).getText().contains("Great!") && !animating() && !moving()) {
             Widgets.get(558, 18).interact();
-            sleep(sleepLong());
+            sleep(sleepLong()*2);
         } else if (Widgets.get(558, 13).getText().contains("Sorry,") && !animating() && !moving()) {
             int i = Calculations.random(0, 2);
             Widgets.get(558, 15+i).interact();
-            sleep(sleepLong());
+            sleep(sleepLong()*2);
         } else if (Widgets.get(558, 7).isVisible() && !animating() && !moving()) {
             Widgets.get(558, 7).interact("Enter name");
-            sleep(sleepLong());
+            sleep(sleepLong()*2);
             Keyboard.type(generateUsername());
-            sleep(sleepLong());
+            sleep(sleepLong()*2);
             if (Widgets.get(558, 18, 9) != null) {
                 Widgets.get(558, 18, 9).interact();
             }
-            sleep(sleepLong());
+            sleep(sleepLong()*2);
             Logger.info("What");
         }
 
 
-        return Calculations.random(250, 1250);
+        return sleepLong()*2;
     }
 }

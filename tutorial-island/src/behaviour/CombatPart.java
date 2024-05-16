@@ -63,15 +63,17 @@ public class CombatPart extends TaskNode {
                 && textboxWidget().getText().contains("This is your combat interface.")
                 && !moving()
                 && !animating()
-                && !new Area(3110, 9521, 3115, 9515).contains(localPlayer())) {
-            Walking.walk(new Area(3110, 9521, 3115, 9515).getRandomTile());
+                && !new Area(3113, 9520, 3111, 9516).contains(localPlayer())) {
+            Walking.walk(new Area(3113, 9520, 3111, 9516).getRandomTile());
             return sleepMedium();
-        } else if(textboxWidget().isVisible()
+        }
+        if(textboxWidget().isVisible()
                 && textboxWidget().getText().contains("This is your combat interface.")
                 && !moving()
                 && !animating()
-                && new Area(3110, 9521, 3115, 9515).contains(localPlayer())) {
+                && new Area(3113, 9520, 3111, 9516).contains(localPlayer())) {
             GameObjects.closest("Gate").interact("Open");
+            return sleepLong();
         }
 
         if (Widgets.get(548, 63) != null && textboxWidget().isVisible() && textboxWidget().getText().contains("open the combat interface") && !animating() && !moving()) {

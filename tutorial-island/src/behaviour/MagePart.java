@@ -5,11 +5,13 @@ import org.dreambot.api.input.Keyboard;
 import org.dreambot.api.input.event.impl.keyboard.awt.Key;
 import org.dreambot.api.methods.interactive.NPCs;
 import org.dreambot.api.methods.map.Area;
+import org.dreambot.api.methods.map.Tile;
 import org.dreambot.api.methods.walking.impl.Walking;
 import org.dreambot.api.methods.widget.Widgets;
 import org.dreambot.api.script.TaskNode;
 import org.dreambot.api.utilities.Logger;
 
+import static value.Constants.timer;
 import static value.Sleep.*;
 import static value.WidgetLib.*;
 
@@ -18,7 +20,27 @@ public class MagePart extends TaskNode {
 
     @Override
     public boolean accept() {
-        Area mageArea = new Area(3114, 3102, 3144, 3076);
+        Area mageArea = new Area(
+                new Tile[] {
+                        new Tile(3114, 3105, 0),
+                        new Tile(3120, 3105, 0),
+                        new Tile(3120, 3103, 0),
+                        new Tile(3139, 3103, 0),
+                        new Tile(3141, 3105, 0),
+                        new Tile(3151, 3105, 0),
+                        new Tile(3151, 3103, 0),
+                        new Tile(3151, 3075, 0),
+                        new Tile(3145, 3073, 0),
+                        new Tile(3127, 3069, 0),
+                        new Tile(3106, 3082, 0),
+                        new Tile(3108, 3094, 0),
+                        new Tile(3108, 3100, 0),
+                        new Tile(3107, 3101, 0),
+                        new Tile(3107, 3102, 0),
+                        new Tile(3111, 3106, 0),
+                        new Tile(3114, 3106, 0)
+                }
+        );;
         return mageArea.contains(localPlayer());
     }
 
@@ -65,7 +87,7 @@ public class MagePart extends TaskNode {
             return sleepLong();
         }
 
-        if (Widgets.get(218, 8) != null && textboxWidget().isVisible() && textboxWidget().getText().contains("You now have some runes.") && !animating() && !moving()) {
+        if (Widgets.get(218, 8) != null && textboxWidget() != null && textboxWidget().isVisible() && textboxWidget().getText().contains("You now have some runes.") && !animating() && !moving()) {
             Widgets.get(218, 8).interact("Cast");
             sleep(sleepLong());
             NPCs.closest("Chicken").interact("Cast");
@@ -77,7 +99,7 @@ public class MagePart extends TaskNode {
             return sleepLong();
         }
 
-        if (magicWidget() != null && textboxWidget().isVisible() && textboxWidget().getText().contains("Open up the magic interface") && !animating() && !moving()) {
+        if (magicWidget() != null && textboxWidget() != null && textboxWidget().isVisible() && textboxWidget().getText().contains("Open up the magic interface") && !animating() && !moving()) {
             magicWidget().interact();
             return sleepLong();
         }

@@ -55,5 +55,8 @@ public class WidgetLib {
     public static WidgetChild magicWidget() {
         return Widgets.get(548, 69);
     }
+    public static WidgetChild clickableScreen() {
+        return Widgets.get(303, 2);
+    }
 
 }

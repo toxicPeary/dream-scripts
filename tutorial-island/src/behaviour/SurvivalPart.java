@@ -8,6 +8,7 @@ import org.dreambot.api.methods.interactive.GameObjects;
 import org.dreambot.api.methods.interactive.NPCs;
 import org.dreambot.api.methods.interactive.Players;
 import org.dreambot.api.methods.map.Area;
+import org.dreambot.api.methods.map.Tile;
 import org.dreambot.api.methods.walking.impl.Walking;
 import org.dreambot.api.script.TaskNode;
 import org.dreambot.api.utilities.Logger;
@@ -21,7 +22,44 @@ public class SurvivalPart extends TaskNode {
 
     @Override
     public boolean accept() {
-        Area survivalStart = new Area(3098, 3107, 3105, 3096);
+        Area survivalStart = new Area(
+                new Tile[] {
+                        new Tile(3098, 3109, 0),
+                        new Tile(3101, 3109, 0),
+                        new Tile(3103, 3107, 0),
+                        new Tile(3103, 3105, 0),
+                        new Tile(3104, 3103, 0),
+                        new Tile(3104, 3101, 0),
+                        new Tile(3105, 3100, 0),
+                        new Tile(3106, 3100, 0),
+                        new Tile(3107, 3099, 0),
+                        new Tile(3107, 3094, 0),
+                        new Tile(3106, 3093, 0),
+                        new Tile(3106, 3092, 0),
+                        new Tile(3105, 3091, 0),
+                        new Tile(3105, 3090, 0),
+                        new Tile(3104, 3089, 0),
+                        new Tile(3103, 3088, 0),
+                        new Tile(3102, 3088, 0),
+                        new Tile(3101, 3087, 0),
+                        new Tile(3097, 3087, 0),
+                        new Tile(3096, 3088, 0),
+                        new Tile(3095, 3088, 0),
+                        new Tile(3094, 3089, 0),
+                        new Tile(3092, 3089, 0),
+                        new Tile(3090, 3091, 0),
+                        new Tile(3090, 3094, 0),
+                        new Tile(3088, 3096, 0),
+                        new Tile(3087, 3096, 0),
+                        new Tile(3086, 3097, 0),
+                        new Tile(3086, 3101, 0),
+                        new Tile(3091, 3101, 0),
+                        new Tile(3091, 3099, 0),
+                        new Tile(3096, 3099, 0),
+                        new Tile(3096, 3104, 0),
+                        new Tile(3098, 3106, 0)
+                }
+        );;
         Area survivalGate = new Area(3090, 3099, 3105, 3090);
 
         return survivalStart.contains(Players.getLocal())

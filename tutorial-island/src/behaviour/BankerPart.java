@@ -30,7 +30,8 @@ public class BankerPart extends TaskNode {
 
 
 
-        if (textboxWidget().isVisible() && textboxWidget().getText().contains("Continue through the next door.") && !animating() && !moving()) {
+        if (textboxWidget().isVisible()
+                && (textboxWidget().getText().contains("Continue through the next door.") || textboxWidget().getText().contains("Pass through the door") )&& !animating() && !moving()) {
             if (!new Area(3128, 3123, 3129, 3124).contains(localPlayer())) {
                 Walking.walk(new Area(3128, 3123, 3129, 3124).getRandomTile());
             } else {

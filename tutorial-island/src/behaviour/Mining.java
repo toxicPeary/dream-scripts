@@ -40,7 +40,7 @@ public class Mining extends TaskNode {
             return sleepLong();
         }
 
-        if (textboxWidget().isVisible() && textboxWidget().getText().contains("To smith")  && !animating() && !moving()) {
+        if (textboxWidget().isVisible() && textboxWidget().getText().contains("To smith") || textboxWidget().getText().contains("the dagger")  && !animating() && !moving()) {
             GameObjects.closest("Anvil").interact("Smith");
 
             return Calculations.random(8000,13000);
