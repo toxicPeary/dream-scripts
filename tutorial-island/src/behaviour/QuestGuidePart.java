@@ -10,8 +10,7 @@ import org.dreambot.api.methods.walking.impl.Walking;
 import org.dreambot.api.script.TaskNode;
 import org.dreambot.api.utilities.Logger;
 
-import static value.Constants.insideQuest;
-import static value.Constants.outsideQuest;
+import static value.Constants.*;
 import static value.Sleep.*;
 import static value.WidgetLib.*;
 
@@ -21,12 +20,16 @@ public class QuestGuidePart extends TaskNode {
     @Override
     public boolean accept() {
 
-        return outsideQuest.contains(localPlayer()) || insideQuest.contains(localPlayer());
+        return outsideQuest.contains(localPlayer()) || insideQuest.contains(localPlayer()) || aboveQuest.contains(localPlayer());
     }
 
     @Override
     public int execute() {
         Logger.info("executing Quest Part");
+        if (aboveQuest.contains(localPlayer())) {
+            GameObjects.closest("Staircase").interact("Climb-down");
+            return sleepMedium();
+        }
         if (textboxWidget().isVisible()
         && textboxWidget().getText().contains("Moving on") && !animating() && !moving()) {
             GameObjects.closest("Ladder").interact();

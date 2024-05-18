@@ -83,6 +83,7 @@ public class Constants {
                     new Tile(3089, 3119, 0)
             }
     );
+    public static final Area aboveQuest = new Area(3076, 3127, 3093, 3116, 1);
     public static final Area prayerArea = new Area(
             new Tile[] {
                     new Tile(3120, 3110, 0),

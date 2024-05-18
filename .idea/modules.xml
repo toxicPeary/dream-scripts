@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/dream-scripts.iml" filepath="$PROJECT_DIR$/dream-scripts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mule-idea/mule-idea.iml" filepath="$PROJECT_DIR$/mule-idea/mule-idea.iml" />
+      <module fileurl="file://$PROJECT_DIR$/trade-unlocked/trade-unlocked.iml" filepath="$PROJECT_DIR$/trade-unlocked/trade-unlocked.iml" />
       <module fileurl="file://$PROJECT_DIR$/tutorial-island/tutorial-island.iml" filepath="$PROJECT_DIR$/tutorial-island/tutorial-island.iml" />
     </modules>
   </component>

@@ -109,11 +109,13 @@ public class InputName extends TaskNode {
         if (Widgets.get(558, 13).getText().contains("Great!") && !animating() && !moving()) {
             Widgets.get(558, 18).interact();
             sleep(sleepLong()*2);
-        } else if (Widgets.get(558, 13).getText().contains("Sorry,") && !animating() && !moving()) {
+        }
+        if (Widgets.get(558, 13).getText().contains("Sorry,") && !animating() && !moving()) {
             int i = Calculations.random(0, 2);
             Widgets.get(558, 15+i).interact();
             sleep(sleepLong()*2);
-        } else if (Widgets.get(558, 7).isVisible() && !animating() && !moving()) {
+        }
+        if (Widgets.get(558, 7).isVisible() && !animating() && !moving()) {
             Widgets.get(558, 7).interact("Enter name");
             sleep(sleepLong()*2);
             Keyboard.type(generateUsername());

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="trade-unlocked:jar">
+    <output-path>$USER_HOME$/DreamBot/Scripts</output-path>
+    <root id="archive" name="trade-unlocked.jar">
+      <element id="module-output" name="trade-unlocked" />
+    </root>
+  </artifact>
+</component>
